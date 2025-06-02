@@ -36,9 +36,11 @@ jobs:
           push: true
           tags: |
             docker.io/${{ secrets.DOCKER_USERNAME }}/zadanie2:latest
-            ghcr.io/${{ github.repository_owner }}/zadanie2:latest
-          cache-from: type=registry,ref=docker.io/${{ secrets.DOCKER_USERNAME }}/cache:latest
-          cache-to: type=registry,ref=docker.io/${{ secrets.DOCKER_USERNAME }}/cache:latest,mode=max      - name: Scan image for vulnerabilities
+            ghcr.io/${{ github.repository_owner }}/zadanie2:latest          
+            cache-from: type=registry,ref=docker.io/${{ secrets.DOCKER_USERNAME }}/cache:latest
+          cache-to: type=registry,ref=docker.io/${{ secrets.DOCKER_USERNAME }}/cache:latest,mode=max
+
+      - name: Scan image for vulnerabilities
         uses: aquasecurity/trivy-action@0.30.0
         with:
           image-ref: ghcr.io/${{ github.repository_owner }}/zadanie2:latest
