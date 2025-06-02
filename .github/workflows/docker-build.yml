@@ -48,7 +48,7 @@ jobs:
           cache-to: type=registry,ref=docker.io/${{ secrets.DOCKER_USERNAME }}/cache:latest,mode=max
 
       - name: Scan image for vulnerabilities
-        uses: aquasecurity/trivy-action@v0.30.0
+        uses: aquasecurity/trivy-action@0.30.0
         with:
           image-ref: docker.io/${{ secrets.DOCKER_USERNAME }}/zadanie2:latest
           exit-code: 1
