@@ -41,7 +41,7 @@ jobs:
           cache-to: type=registry,ref=docker.io/${{ secrets.DOCKER_USERNAME }}/cache:latest,mode=max
 
       - name: Scan image for vulnerabilities
-        uses: aquasecurity/trivy-action@v0.20.0
+        uses: aquasecurity/trivy-action@v0.29.0
         with:
           image-ref: ghcr.io/${{ github.repository_owner }}/your-image-name:latest
           exit-code: 1  
